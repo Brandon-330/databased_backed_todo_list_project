@@ -8,4 +8,4 @@ CREATE TABLE todos (
   name text NOT NULL,
   list_id int REFERENCES lists(id) NOT NULL,
   completed boolean NOT NULL DEFAULT false
-)
+);
