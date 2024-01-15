@@ -2,9 +2,8 @@ require "sinatra"
 require "sinatra/reloader"
 require "sinatra/content_for"
 require "tilt/erubis"
-require 'securerandom'
 
-require_relative 'session_persistance'
+require_relative 'database_persistance'
 
 configure do
   enable :sessions
@@ -69,7 +68,7 @@ def error_for_todo(name)
 end
 
 before do
-  @storage = SessionPersistence.new(session)
+  @storage = DatabasePersistence.new(logger)
 end
 
 get "/" do
